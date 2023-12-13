@@ -11,7 +11,7 @@ import { Products } from "./collections/Products";
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
 export default buildConfig({
-  serverURL: process.env.PAYLOAD_PUBLIC_EXTERNAL_SERVER_URL,
+  serverURL: `http://ec2-15-206-203-5.ap-south-1.compute.amazonaws.com`,
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
@@ -32,11 +32,11 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
-  cors: process.env.WHITELIST_ORIGINS
-    ? process.env.WHITELIST_ORIGINS.split(",")
+  cors: 'http://localhost:3000'
+    ? 'http://localhost:3000'.split(",")
     : [],
-  csrf: process.env.WHITELIST_ORIGINS
-    ? process.env.WHITELIST_ORIGINS.split(",")
+  csrf: 'http://localhost:3000'
+    ? 'http://localhost:3000'.split(",")
     : [],
   graphQL: {
     // schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
@@ -44,6 +44,6 @@ export default buildConfig({
   },
   plugins: [payloadCloud()],
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+    url: `mongodb+srv://savaliyahiren809:Thwr6TzVHHAhwB4x@cluster0.xhjhygq.mongodb.net/vintage-test?retryWrites=true&w=majority`,
   }),
 });
