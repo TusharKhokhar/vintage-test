@@ -1,5 +1,5 @@
 import path from "path";
-
+require('dotenv').config();
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
@@ -11,7 +11,7 @@ import { Products } from "./collections/Products";
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
 export default buildConfig({
-  serverURL: `http://ec2-13-233-159-33.ap-south-1.compute.amazonaws.com`,
+  serverURL: process.env.PAYLOAD_PUBLIC_EXTERNAL_SERVER_URL,
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
@@ -32,11 +32,11 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
-  cors: 'http://localhost:3000'
-    ? 'http://localhost:3000'.split(",")
+  cors: process.env.WHITELIST_ORIGINS
+    ? process.env.WHITELIST_ORIGINS.split(",")
     : [],
-  csrf: 'http://localhost:3000'
-    ? 'http://localhost:3000'.split(",")
+  csrf: process.env.WHITELIST_ORIGINS
+    ? process.env.WHITELIST_ORIGINS.split(",")
     : [],
   graphQL: {
     // schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
@@ -44,6 +44,6 @@ export default buildConfig({
   },
   plugins: [payloadCloud()],
   db: mongooseAdapter({
-    url: `mongodb+srv://savaliyahiren809:Thwr6TzVHHAhwB4x@cluster0.xhjhygq.mongodb.net/vintage-test?retryWrites=true&w=majority`,
+    url: process.env.DATABASE_URI,
   }),
 });
