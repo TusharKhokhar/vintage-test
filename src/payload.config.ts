@@ -11,7 +11,7 @@ import { Products } from "./collections/Products";
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
 export default buildConfig({
-  serverURL: 'https://vintage-test-5893991.payloadcms.app',
+  serverURL: process.env.PAYLOAD_PUBLIC_EXTERNAL_SERVER_URL,
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
