@@ -11,7 +11,7 @@ import { Products } from "./collections/Products";
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
 export default buildConfig({
-  serverURL: `http://ec2-52-66-243-233.ap-south-1.compute.amazonaws.com/`,
+  serverURL: `http://ec2-52-66-243-233.ap-south-1.compute.amazonaws.com`,
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
