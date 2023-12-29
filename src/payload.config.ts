@@ -5,11 +5,6 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 import AdminUser from "./collections/Users";
-import { Products } from "./collections/Products";
-import Category from "./collections/Category";
-import { TypeInfo } from "./collections/TypeInfo";
-import { ProductStyle } from "./collections/ProductStyle";
-import { ProductYear } from "./collections/ProductYear";
 
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
@@ -31,7 +26,7 @@ export default buildConfig({
     }),
   },
   editor: slateEditor({}),
-  collections: [AdminUser, Products, Category, TypeInfo, ProductStyle, ProductYear],
+  collections: [AdminUser],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
