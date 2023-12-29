@@ -4,7 +4,7 @@ require("dotenv").config({ path: path.resolve(__dirname + "/./../../.env") });
 
 
 const url = process.env.DATABASE_URI;
-const dbName = "vintagelights";
+const dbName = "admin";
 
 const client = new MongoClient(url);
 client.connect(async function (err) {
