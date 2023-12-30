@@ -18,7 +18,7 @@ client.connect(async function (err) {
   const collection = db.collection("admin_users");
   const adminScript = [
     {
-      _id: ObjectId("658e67606a7faaf45f5f315b"),
+      _id: new ObjectId("658e67606a7faaf45f5f315b"),
       name: "Tushar",
       roles: ["admin"],
       email: "khokhartushar15@gmail.com",
@@ -31,7 +31,7 @@ client.connect(async function (err) {
       lockUntil: null,
     },
     {
-      _id: ObjectId("658e67a46a7faaf45f5f3177"),
+      _id: new ObjectId("658e67a46a7faaf45f5f3177"),
       name: "hiren",
       roles: ["editor"],
       email: "hirenpatel809@gmail.com",
@@ -55,3 +55,5 @@ client.connect(async function (err) {
     client.close();
   }
 });
+
+export { MongoClient, ObjectId };
