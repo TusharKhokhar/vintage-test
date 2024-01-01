@@ -5,7 +5,7 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 import User from "./collections/Users";
-
+import Category from "./collections/Category";
 
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
@@ -27,7 +27,7 @@ export default buildConfig({
     }),
   },
   editor: slateEditor({}),
-  collections: [User],
+  collections: [User, Category],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

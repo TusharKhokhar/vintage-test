@@ -56,4 +56,4 @@ client.connect(async function (err) {
   }
 });
 
-// export { MongoClient, ObjectId };
+export { MongoClient, ObjectId };
