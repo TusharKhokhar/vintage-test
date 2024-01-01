@@ -4,15 +4,18 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
-import AdminUser from "./collections/Users";
-import { TypeInfo } from "./collections/TypeInfo";
+import User from "./collections/Users";
+import { Products } from "./collections/Products";
+import Category from "./collections/Category";
+import { ProductStyle } from "./collections/ProductStyle";
+import { ProductYear } from "./collections/ProductYear";
 
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_EXTERNAL_SERVER_URL,
   admin: {
-    user: AdminUser.slug,
+    user: User.slug,
     bundler: webpackBundler(),
     webpack: (config) => ({
       ...config,
@@ -27,7 +30,7 @@ export default buildConfig({
     }),
   },
   editor: slateEditor({}),
-  collections: [AdminUser, TypeInfo],
+  collections: [User, Products, Category, ProductStyle, ProductYear],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

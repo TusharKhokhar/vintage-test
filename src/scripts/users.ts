@@ -15,7 +15,7 @@ client.connect(async function (err) {
   console.log("Connected successfully to server");
 
   const db = client.db(dbName);
-  const collection = db.collection("admin_users");
+  const collection = db.collection("user");
   const adminScript = [
     {
       _id: new ObjectId("658e67606a7faaf45f5f315b"),
@@ -56,4 +56,4 @@ client.connect(async function (err) {
   }
 });
 
-export { MongoClient, ObjectId };
+// export { MongoClient, ObjectId };

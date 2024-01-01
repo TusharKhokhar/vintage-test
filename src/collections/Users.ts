@@ -2,8 +2,8 @@ import { CollectionConfig } from "payload/types";
 import { isAdmin, isAdminFieldLevel } from "../aceess/isAdmin";
 import { isAdminOrSelf } from "../aceess/isAdminOrSelf";
 
-const AdminUser: CollectionConfig = {
-  slug: "admin_user",
+const User: CollectionConfig = {
+  slug: "user",
   auth: true,
   admin: {
     useAsTitle: "email",
@@ -49,4 +49,4 @@ const AdminUser: CollectionConfig = {
   ],
 };
 
-export default AdminUser;
+export default User;
