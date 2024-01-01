@@ -8,6 +8,7 @@ import User from "./collections/Users";
 import Category from "./collections/Category";
 import { ProductStyle } from "./collections/ProductStyle";
 import { ProductYear } from "./collections/ProductYear";
+import { Products } from "./collections/Products";
 
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
@@ -22,14 +23,14 @@ export default buildConfig({
         ...config.resolve,
         extensions: [".js", "jsx", ".ts", ".tsx"],
         alias: {
-          ...config.resolve.alias,
+          ...config.resolve?.alias,
           fs: mockModulePath,
         },
       },
     }),
   },
   editor: slateEditor({}),
-  collections: [User, Category, ProductStyle, ProductYear],
+  collections: [User, Category, ProductStyle, ProductYear, Products],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
@@ -45,6 +46,6 @@ export default buildConfig({
   },
   plugins: [payloadCloud()],
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+    url: process.env.DATABASE_URI || "",
   }),
 });

@@ -1,17 +1,24 @@
 import { CollectionConfig } from "payload/types";
+import { isAdmin } from "../aceess/isAdmin";
 
 export const Products: CollectionConfig = {
   slug: "products",
+  access: {
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
+  },
   fields: [
     {
-      name: "publishDate",
-      label: "Publish Date",
-      type: "date",
-    },
-    {
-      name: "productname",
+      name: "name",
       label: "Product Name",
       type: "text",
+    },
+    {
+      name: "category_id",
+      label: "Category Name",
+      type: "relationship",
+      relationTo: "category",
     },
     {
       name: "slug",
@@ -19,72 +26,82 @@ export const Products: CollectionConfig = {
       type: "text",
     },
     {
-      name: "CategoryName",
-      label: "Category Name",
-      type: "select",
-      hasMany: true,
-      admin: {
-        isClearable: true,
-        isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
-      },
-      options: [
-        {
-          label: "Celling",
-          value: "celling",
-        },
-        {
-          label: "WALL",
-          value: "wall",
-        },
-        {
-          label: "NEWS",
-          value: "news",
-        },
-      ],
+      name: "price",
+      label: "Price",
+      type: "text",
     },
     {
-      name: "style",
+      name: "description",
+      label: "Description",
+      type: "text",
+    },
+    {
+      name: "page_title",
+      label: "Page Title",
+      type: "text",
+    },
+    {
+      name: "meta_description",
+      label: "Meta Description",
+      type: "text",
+    },
+    {
+      name: "keywords",
+      label: "Keywords",
+      type: "text",
+    },
+    {
+      name: "style_id",
       label: "Style",
-      type: "select",
-      hasMany: true,
-      admin: {
-        isClearable: true,
-        isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
-      },
-      options: [
-        {
-          label: "Arts & Crafts",
-          value: "arts_crafts",
-        },
-        {
-          label: "Art Deco",
-          value: "art_deco",
-        },
-        {
-          label: "Mid Century",
-          value: "mid_century",
-        },
-      ],
+      type: "relationship",
+      relationTo: "style",
     },
     {
-      name: "freeShipping", // required
-      type: "checkbox", // required
+      name: "year_id",
+      label: "Year",
+      type: "relationship",
+      relationTo: "year",
+    },
+    {
+      name: "free_shipping",
+      type: "checkbox",
       label: "Free Shipping",
       defaultValue: false,
     },
     {
-      name: "description", // required
-      type: "textarea", // required
-      label: "Description",
+      name: "is_sold",
+      type: "checkbox",
+      label: "Is Sold",
+      defaultValue: false,
     },
     {
-      name: "price", // required
-      type: "number", // required
-      label: "Price in USD",
-      required: true,
-      admin: {
-        step: 10,
-      },
+      name: "is_featured",
+      type: "checkbox",
+      label: "Is Fearured",
+      defaultValue: false,
+    },
+    {
+      name: "is_active",
+      type: "checkbox",
+      label: "Is Active",
+      defaultValue: false,
+    },
+    {
+      name: "is_discount_excluded",
+      type: "checkbox",
+      label: "Is Discount Excluded",
+      defaultValue: false,
+    },
+    {
+      name: "delete",
+      type: "checkbox",
+      label: "Deleted",
+      defaultValue: false,
+    },
+    {
+      name: "additional_charges",
+      type: "text",
+      label: "Additional Charges",
     },
   ],
 };
