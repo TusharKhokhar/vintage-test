@@ -6,6 +6,7 @@ const url = process.env.DATABASE_URI;
 const dbName = "admin";
 
 const client = new MongoClient(url);
+
 client.connect(async function (err) {
   if (err) {
     console.error("Error occurred while connecting to MongoDB:", err);
@@ -15,7 +16,7 @@ client.connect(async function (err) {
   console.log("Connected successfully to server");
 
   const db = client.db(dbName);
-  const collection = db.collection("categories");
+  const collection = db.collection("style");
   const categoryScript = [
     {
       _id: new ObjectId("65893d98d29bf691f1ec85c9"),
