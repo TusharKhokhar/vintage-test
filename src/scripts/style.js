@@ -16,7 +16,7 @@ client.connect(async function (err) {
   console.log("Connected successfully to server");
 
   const db = client.db(dbName);
-  const collection = db.collection("style");
+  const collection = db.collection("styles");
   const categoryScript = [
     {
       _id: new ObjectId("65893d98d29bf691f1ec85c9"),
