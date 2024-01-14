@@ -22,6 +22,9 @@ const User: CollectionConfig = {
       name: "name",
       type: "text",
       label: "Name",
+      admin:{
+        description:" Enter the full name of the user. This will be used for identification purposes"
+      }
     },
     {
       name: "roles",
@@ -45,6 +48,9 @@ const User: CollectionConfig = {
           value: "editor",
         },
       ],
+      admin:{
+        description:"Assign a role to the user. Roles define their permissions and access levels on the website (e.g., Admin, Read Only)."
+      }
     },
   ],
 };
