@@ -18,8 +18,10 @@ const Category: CollectionConfig = {
       name: "date_created",
       label: "Date Created",
       type: "date",
+      defaultValue:new Date().toISOString().split('T')[0],
       admin:{
-        description:"Select the date. Shows when the category was initially created."
+        description:"Select the date. Shows when the category was initially created.",
+        position:"sidebar"
       }
     },
     {
@@ -34,14 +36,16 @@ const Category: CollectionConfig = {
       name: "date_modified",
       label: "Date Modified",
       type: "date",
+      defaultValue:new Date().toISOString().split('T')[0],
       admin:{
-        description:"Select the date. Shows the last modification date of the category."
+        description:"Select the date. Shows the last modification date of the category.",
+        position:"sidebar"
       }
     },
     {
       name: "description",
       label: "Description",
-      type: "text",
+      type: "richText",
       admin:{
         description:" Provide a brief description of the category. This gives users an idea of the products it contains"
       }
@@ -50,6 +54,9 @@ const Category: CollectionConfig = {
       name: "is_active",
       label: "Is Active",
       type: "checkbox",
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "extn",
@@ -80,7 +87,8 @@ const Category: CollectionConfig = {
       label: "Keywords",
       type: "text",
       admin:{
-        description:"Specify relevant keywords for the category, separated by commas. This assists in SEO efforts. This does not appear on the website"
+        description:"Specify relevant keywords for the category, separated by commas. This assists in SEO efforts. This does not appear on the website",
+        position:"sidebar"
       }
     },
   ],

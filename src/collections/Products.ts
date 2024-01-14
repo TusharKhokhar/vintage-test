@@ -18,6 +18,14 @@ export const Products: CollectionConfig = {
       }
     },
     {
+      name: "description",
+      label: "Description",
+      type: "richText",
+      admin:{
+        description:"Provide a detailed description of the product. Highlight key features and benefits."
+      }
+    },
+    {
       name: "category_id",
       label: "Category Name",
       type: "relationship",
@@ -42,20 +50,14 @@ export const Products: CollectionConfig = {
         description:"Set the price of the product. Use numerical values only, without symbols."
       }
     },
-    {
-      name: "description",
-      label: "Description",
-      type: "text",
-      admin:{
-        description:"Provide a detailed description of the product. Highlight key features and benefits."
-      }
-    },
+    
     {
       name: "page_title",
       label: "Page Title",
       type: "text",
       admin:{
-        description:"Create a compelling title for the product page. This will appear in search engine results. This won't be visible on the website (up to 70 characters)."
+        description:"Create a compelling title for the product page. This will appear in search engine results. This won't be visible on the website (up to 70 characters).",
+        position:"sidebar"
       }
     },
     {
@@ -66,14 +68,7 @@ export const Products: CollectionConfig = {
         description:"Write a brief and engaging summary of the product. This helps improve search engine visibility. This won't be visible on the website (up to 160 characters)."
       }
     },
-    {
-      name: "keywords",
-      label: "Keywords",
-      type: "text",
-      admin:{
-        description:"Enter relevant keywords separated by commas. This aids in search engine optimization. This won't be visible on the website."
-      }
-    },
+    
     {
       name: "style_id",
       label: "Style",
@@ -97,36 +92,54 @@ export const Products: CollectionConfig = {
       type: "checkbox",
       label: "Free Shipping",
       defaultValue: false,
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "is_sold",
       type: "checkbox",
       label: "Is Sold",
       defaultValue: false,
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "is_featured",
       type: "checkbox",
-      label: "Is Fearured",
+      label: "Is Featured",
       defaultValue: false,
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "is_active",
       type: "checkbox",
       label: "Is Active",
       defaultValue: false,
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "is_discount_excluded",
       type: "checkbox",
       label: "Is Discount Excluded",
       defaultValue: false,
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "delete",
       type: "checkbox",
       label: "Deleted",
       defaultValue: false,
+      admin:{
+        position:"sidebar"
+      }
     },
     {
       name: "additional_charges",
@@ -134,6 +147,15 @@ export const Products: CollectionConfig = {
       label: "Additional Charges",
       admin:{
         description:"If applicable, input any extra costs associated with the product, such as shipping or handling fees"
+      }
+    },
+    {
+      name: "keywords",
+      label: "Keywords",
+      type: "text",
+      admin:{
+        description:"Enter relevant keywords separated by commas. This aids in search engine optimization. This won't be visible on the website.",
+        position:"sidebar"
       }
     },
   ],

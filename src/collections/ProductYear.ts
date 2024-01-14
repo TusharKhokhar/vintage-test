@@ -10,24 +10,20 @@ export const ProductYear: CollectionConfig = {
       name: "date_created",
       label: "Publish Date",
       type: "date",
+      defaultValue:new Date().toISOString().split('T')[0],
       admin:{
-        description:" Select the date. Displays the date when the style was initially published"
+        description:" Select the date. Displays the date when the style was initially published",
+        position:"sidebar"
       }
     },
     {
       name: "date_modified",
       label: "Update At",
       type: "date",
+      defaultValue:new Date().toISOString().split('T')[0],
       admin:{
-        description:"Select the date. Shows the last modification date of the style."
-      }
-    },
-    {
-      name: "type",
-      label: "Type",
-      type: "text",
-      admin:{
-        description:"Enter the type of the style of the product."
+        description:"Select the date. Shows the last modification date of the style.",
+        position:"sidebar"
       }
     },
     {
@@ -46,5 +42,14 @@ export const ProductYear: CollectionConfig = {
         description:"A unique identifier for the style. Keep it short, separated by '-'"
       }
     },
+    {
+      name: "type",
+      label: "Type",
+      type: "text",
+      admin:{
+        description:"Enter the type of the style of the product."
+      }
+    },
+    
   ],
 };
