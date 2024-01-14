@@ -18,6 +18,15 @@ export const Products: CollectionConfig = {
       }
     },
     {
+      name: "page_title",
+      label: "Title",
+      type: "text",
+      admin:{
+        description:"Create a compelling title for the product page. This will appear in search engine results. This won't be visible on the website (up to 70 characters).",
+        
+      }
+    },
+    {
       name: "description",
       label: "Description",
       type: "richText",
@@ -43,32 +52,14 @@ export const Products: CollectionConfig = {
       }
     },
     {
-      name: "price",
-      label: "Price",
-      type: "text",
+      name: "year_id",
+      label: "Year",
+      type: "relationship",
+      relationTo: "year",
       admin:{
-        description:"Set the price of the product. Use numerical values only, without symbols."
+        description:"Indicate the manufacturing or release year of the product."
       }
     },
-    
-    {
-      name: "page_title",
-      label: "Page Title",
-      type: "text",
-      admin:{
-        description:"Create a compelling title for the product page. This will appear in search engine results. This won't be visible on the website (up to 70 characters).",
-        position:"sidebar"
-      }
-    },
-    {
-      name: "meta_description",
-      label: "Meta Description",
-      type: "text",
-      admin:{
-        description:"Write a brief and engaging summary of the product. This helps improve search engine visibility. This won't be visible on the website (up to 160 characters)."
-      }
-    },
-    
     {
       name: "style_id",
       label: "Style",
@@ -79,14 +70,26 @@ export const Products: CollectionConfig = {
       }
     },
     {
-      name: "year_id",
-      label: "Year",
-      type: "relationship",
-      relationTo: "year",
+      name: "price",
+      label: "Price",
+      type: "text",
       admin:{
-        description:"Indicate the manufacturing or release year of the product."
+        description:"Set the price of the product. Use numerical values only, without symbols."
       }
     },
+    {
+      name: "additional_charges",
+      type: "text",
+      label: "Additional Charges",
+      admin:{
+        description:"If applicable, input any extra costs associated with the product, such as shipping or handling fees"
+      }
+    },
+    
+    
+    
+    
+    
     {
       name: "free_shipping",
       type: "checkbox",
@@ -142,11 +145,12 @@ export const Products: CollectionConfig = {
       }
     },
     {
-      name: "additional_charges",
+      name: "meta_description",
+      label: "Meta Description",
       type: "text",
-      label: "Additional Charges",
       admin:{
-        description:"If applicable, input any extra costs associated with the product, such as shipping or handling fees"
+        description:"Write a brief and engaging summary of the product. This helps improve search engine visibility. This won't be visible on the website (up to 160 characters).",
+        position:"sidebar"
       }
     },
     {

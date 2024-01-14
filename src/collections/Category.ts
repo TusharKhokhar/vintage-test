@@ -45,7 +45,7 @@ const Category: CollectionConfig = {
     {
       name: "description",
       label: "Description",
-      type: "richText",
+      type: "text",
       admin:{
         description:" Provide a brief description of the category. This gives users an idea of the products it contains"
       }
