@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../aceess/isAdmin";
 
+
 export const Products: CollectionConfig = {
   slug: "products",
   access: {
@@ -8,6 +9,7 @@ export const Products: CollectionConfig = {
     update: isAdmin,
     delete: isAdmin,
   },
+  
   fields: [
     {
       name: "name",
@@ -29,7 +31,7 @@ export const Products: CollectionConfig = {
     {
       name: "description",
       label: "Description",
-      type: "richText",
+      type: "text",
       admin:{
         description:"Provide a detailed description of the product. Highlight key features and benefits."
       }
@@ -47,8 +49,9 @@ export const Products: CollectionConfig = {
       name: "slug",
       label: "Slug",
       type: "text",
+      
       admin:{
-        description:"A unique identifier for the product. Keep it short, starting with '/' separated by '-'. Ex: If the product name is: 1980s Vintage lamp, then the slug will be entered this way: /1980s-vintage-lamp"
+        description:"A unique identifier for the product. Keep it short, starting with '/' separated by '-'. Ex: If the product name is: 1980s Vintage lamp, then the slug will be entered this way: /1980s-vintage-lamp",
       }
     },
     {
@@ -86,9 +89,33 @@ export const Products: CollectionConfig = {
       }
     },
     
-    
-    
-    
+    {
+      name: "length",
+      type: "number",
+      label: "Length",
+      defaultValue: 0,
+      admin:{
+        position:"sidebar"
+      }
+    },
+    {
+      name: "height",
+      type: "number",
+      label: "Height",
+      defaultValue: 0,
+      admin:{
+        position:"sidebar"
+      }
+    },
+    {
+      name: "weight",
+      type: "number",
+      label: "Weight",
+      defaultValue: 0,
+      admin:{
+        position:"sidebar"
+      }
+    },
     
     {
       name: "free_shipping",
@@ -141,7 +168,8 @@ export const Products: CollectionConfig = {
       label: "Deleted",
       defaultValue: false,
       admin:{
-        position:"sidebar"
+        position:"sidebar",
+        hidden: true  
       }
     },
     {
@@ -150,7 +178,7 @@ export const Products: CollectionConfig = {
       type: "text",
       admin:{
         description:"Write a brief and engaging summary of the product. This helps improve search engine visibility. This won't be visible on the website (up to 160 characters).",
-        position:"sidebar"
+        
       }
     },
     {
@@ -159,7 +187,7 @@ export const Products: CollectionConfig = {
       type: "text",
       admin:{
         description:"Enter relevant keywords separated by commas. This aids in search engine optimization. This won't be visible on the website.",
-        position:"sidebar"
+       
       }
     },
   ],
