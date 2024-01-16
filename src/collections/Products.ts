@@ -103,5 +103,35 @@ export const Products: CollectionConfig = {
       type: "text",
       label: "Additional Charges",
     },
+    {
+      name: "product_images",
+      label: "Product Images",
+      type: "array",
+      maxRows: 1,   
+      fields: [
+        {
+          name: "prime_off",
+          type: "upload",
+          relationTo: "image",
+        },
+        {
+          name: "prime_on",
+          type: "upload",
+          relationTo: "image",
+        },
+        {
+          name: "other",
+          type: "array",
+          label: "Other",
+          fields: [
+            {
+              name: "other",
+              type: "upload",
+              relationTo: "image",
+            },
+          ],
+        },
+      ],
+    },
   ],
 };

@@ -3,7 +3,7 @@ const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname + "/./../../.env") });
 
 const url = process.env.DATABASE_URI;
-const dbName = "admin";
+const dbName = "vintage_prod";
 
 const client = new MongoClient(url);
 client.connect(async function (err) {
@@ -15,7 +15,7 @@ client.connect(async function (err) {
   console.log("Connected successfully to server");
 
   const db = client.db(dbName);
-  const collection = db.collection("categories");
+  const collection = db.collection("test");
   const categoryScript = [
     {
       _id: new ObjectId("65893d98d29bf691f1ec85c9"),
@@ -278,6 +278,8 @@ client.connect(async function (err) {
   try {
     const result = await collection.insertMany(categoryScript);
     console.log(`${result.insertedCount} documents inserted.`);
+    // const deleteResult = await collection.deleteMany({ deleted: true });  
+    // console.log(`${deleteResult.deletedCount} documents deleted.`);
   } catch (error) {
     console.error("Error occurred while inserting documents:", error);
   } finally {
