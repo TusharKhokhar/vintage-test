@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload/types";
 import { isAdmin } from "../aceess/isAdmin";
 
 
+
 export const Products: CollectionConfig = {
   slug: "products",
   access: {
@@ -15,9 +16,15 @@ export const Products: CollectionConfig = {
       name: "name",
       label: "Product Name",
       type: "text",
+      hooks:{
+        beforeChange:[({ data, value, operation }) => {
+            data.slug= value.toLowerCase().replace(/\s+/g, '-')
+            return value;
+          },]
+      },
       admin:{
         description:"Enter the name of the product. This will be displayed on our website"
-      }
+      },
     },
     {
       name: "page_title",
@@ -31,7 +38,7 @@ export const Products: CollectionConfig = {
     {
       name: "description",
       label: "Description",
-      type: "text",
+      type: "textarea",
       admin:{
         description:"Provide a detailed description of the product. Highlight key features and benefits."
       }
@@ -52,7 +59,7 @@ export const Products: CollectionConfig = {
       
       admin:{
         description:"A unique identifier for the product. Keep it short, starting with '/' separated by '-'. Ex: If the product name is: 1980s Vintage lamp, then the slug will be entered this way: /1980s-vintage-lamp",
-      }
+      },
     },
     {
       name: "year_id",
@@ -102,6 +109,15 @@ export const Products: CollectionConfig = {
       name: "height",
       type: "number",
       label: "Height",
+      defaultValue: 0,
+      admin:{
+        position:"sidebar"
+      }
+    },
+    {
+      name: "width",
+      type: "number",
+      label: "Width",
       defaultValue: 0,
       admin:{
         position:"sidebar"
@@ -191,4 +207,5 @@ export const Products: CollectionConfig = {
       }
     },
   ],
+ 
 };
