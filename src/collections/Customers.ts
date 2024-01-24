@@ -2,9 +2,6 @@ import { CollectionConfig } from "payload/types";
 
 const Customers: CollectionConfig = {
   slug: "Customers",
-  admin: {
-    useAsTitle: "name",
-  },
   fields: [
     {
       name: "first_name",

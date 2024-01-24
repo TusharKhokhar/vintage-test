@@ -10,7 +10,6 @@ export const Products: CollectionConfig = {
     update: isAdmin,
     delete: isAdmin,
   },
-  
   fields: [
     {
       name: "name",
@@ -32,7 +31,6 @@ export const Products: CollectionConfig = {
       type: "text",
       admin:{
         description:"Create a compelling title for the product page. This will appear in search engine results. This won't be visible on the website (up to 70 characters).",
-        
       }
     },
     {

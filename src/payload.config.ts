@@ -10,6 +10,7 @@ import { ProductStyle } from "./collections/ProductStyle";
 import { ProductYear } from "./collections/ProductYear";
 import { Products } from "./collections/Products";
 import Customers from "./collections/Customers";
+import { Orders } from "./collections/Orders";
 
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
@@ -31,7 +32,7 @@ export default buildConfig({
     }),
   },
   editor: slateEditor({}),
-  collections: [User, Category, ProductStyle, ProductYear, Products, Customers],
+  collections: [User, Category, ProductStyle, ProductYear, Products, Customers, Orders],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
