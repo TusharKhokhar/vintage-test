@@ -3,7 +3,7 @@ const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname + "/./../../.env") });
 
 const url = process.env.DATABASE_URI;
-const dbName = "admin";
+const dbName = "vintage_prod";
 
 const client = new MongoClient(url);
 
