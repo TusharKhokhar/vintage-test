@@ -12,6 +12,7 @@ import { ProductYear } from "./collections/ProductYear";
 import { Products } from "./collections/Products";
 import Customers from "./collections/Customers";
 import { ProductImage } from "./collections/ProductImage";
+import { Orders } from "./collections/Orders";
 
 const mockModulePath = path.resolve(__dirname, "mocks", "emptyFunction.ts");
 
@@ -54,6 +55,7 @@ export default buildConfig({
     Products,
     Customers,
     ProductImage,
+    Orders,
   ],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
