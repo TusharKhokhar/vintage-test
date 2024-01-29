@@ -8,7 +8,7 @@ export const ProductImage: CollectionConfig = {
     disableLocalStorage: true,
   },
   admin: {
-    hidden: true
+    hidden: true,
   },
   fields: [
     {
@@ -22,8 +22,9 @@ export const ProductImage: CollectionConfig = {
       },
       hooks: {
         afterRead: [
-          ({ data: doc }) =>
-            `https://com-vlights.s3.amazonaws.com/test/${doc.filename}`,
+          ({ data: doc }) => {
+            return `https://com-vlights.s3.amazonaws.com/product-images/${doc.filename}`;
+          },
         ],
       },
     },
